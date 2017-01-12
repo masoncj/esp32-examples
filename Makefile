@@ -4,6 +4,7 @@
 #
 
 PROJECT_NAME := app-template
+CXXFLAGS := -DARDUINO=100
 
 include $(IDF_PATH)/make/project.mk
 
