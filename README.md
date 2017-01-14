@@ -74,13 +74,13 @@ make menuconfig
 
 This will show a graphical configuration screen like this:
 
-<img alt="make menuconfig main screen" src="assets/make_menuconfig_main.png"/>
+<img alt="make menuconfig main screen" src="assets/make_menuconfig_main.png" width="500px"/>
 
 Use the up and down arrow keys to navigate menus at the middle of the screen and the left and right arrow keys to navigate the buttons along the bottom.  Press enter to select.
 
 Under "Serial flasher config", change the "Default serial port" to the `/dev/tty...` path you discovered above.  Change the "Flash size" to 4MB (for SparkFun board).
 
-<img alt="make menuconfig Serial Flasher screen" src="assets/make_menuconfig_serial_flasher.png"/>
+<img alt="make menuconfig Serial Flasher screen" src="assets/make_menuconfig_serial_flasher.png" width="500px"/>
 
 Choose "Exit" repeatedly and save the configuration.
 
@@ -127,14 +127,16 @@ If you successfully flash the device at the default baud rate (115200), you can 
 See [below](#troubleshooting) for troubleshooting suggestions.
 
 
+
+
+## Examples
+
 ### Choosing which example to run
 
 The template IDF project is set up to only run a single program.  We have a number of different examples here.  By default the [`main/main_gpio.c`](main/main_gpio.c) example will run, which blinks the LED and writes.
 
 To choose which example to run, edit the `main/component.mk` file and change which one of the `COMPONENT_OBJS` lines is commented in.
 
-
-## Examples
 
 ### GPIO Blink LED
 
@@ -165,17 +167,17 @@ Backtrace: 0x400e6919:0x3ffb7c60 0x400d06dd:0x3ffb7c90
 ```
 
 
-This is a register dump.  This is produced by FreeRTOS whenever a task crashes.  The "backtrace" line allows you to figure out which line it crashed on.  There are pairs of addresses separated by colons; pass the first address of the pair to `addr2line`:
+This is a register dump and execution traceback.  This is produced by FreeRTOS whenever a task crashes.  The "backtrace" line allows you to figure out where it crashed.  There are pairs of addresses separated by colons; pass the first address of the pair to `addr2line`:
 
 ```
 xtensa-esp32-elf-addr2line -e build/app-template.elf 0x400e6919
 /Users/cmason/code/esp32/esp32-examples/main/./main_crash.c:21 (discriminator 1)
 ```
 
-You may need to talk up the stack in order to find your code (but see below for an easier way using GDB).
+You may need to walk up the stack in order to find your code (but see below for an easier way using GDB).
 
 
-By default your program will reboot on the device and this will happen in a loop quickly, which is useful in a real device but is annoying when debugging.
+By default a crash reboot the device, which is useful in a real device but is annoying when debugging.  This may happen in a loop quickly (see [this troubleshooting answer](#My-program-is-crashing-in-a loop-and-I-can-t-get-the-device-to-flash) if you have trouble breaking out of this loop).
 
 However, you can change this behavior and even connect a debugger!
 
@@ -338,7 +340,7 @@ The wrong device port is specified.
 
 Run `make menuconfig` again and edit the "Serial flasher config > Default serial port.
 
--Or- edit the `sdkconfig` file and change the value of 
+-Or- edit the `sdkconfig` file and change the value of `CONFIG_ESPTOOLPY_PORT`.
 
 
 ### `miniterm.py: error: no such option: --raw`
@@ -356,6 +358,10 @@ This repository wasn't cloned recursively (using `--recursive`).  You can fix th
 ```
 git submodule update --init
 ```
+
+### Compilation error involving `esp32-hal-spi.c`.
+
+Remove that file. I think this is mismatch between arduino and the ESP-IDF, but I haven't had time to debug yet.
 
 ### My program is crashing in a loop and I can't get the device to flash
 
