@@ -41,7 +41,7 @@ The layout of this repository is based on the [ESP IDF Template](https://github.
 
 ### Installation Steps
 
-*IMPORTANT*: both repository and the ESP-IDF repository have submodules, so must be cloned with `--recursive`.
+*IMPORTANT*: both this repository and the ESP-IDF repository have submodules, so must be cloned with `--recursive`.
 
 Install and configure the [ESP-IDF](https://github.com/espressif/esp-idf) (the SDK for ESP32 development), including downloading the GCC compiler and possibly installing Xcode, and either MacPorts or Homebrew.  Please see detailed installation instructions there, but in summary, for Mac:
 
@@ -51,7 +51,7 @@ mkdir esp32
 cd esp32 
 git clone --recursive https://github.com/espressif/esp-idf
 # Double check that the below compiler version is the most recent mentioned in ESP-IDF setup instructions:
-wget https://dl.espressif.com/dl/xtensa-esp32-elf-osx-1.22.0-61-gab8375a-5.2.0.tar.gz
+curl -O https://dl.espressif.com/dl/xtensa-esp32-elf-osx-1.22.0-61-gab8375a-5.2.0.tar.gz
 tar xzf xtensa-esp32-elf-osx-1.22.0-61-gab8375a-5.2.0.tar.gz
 export PATH=`pwd`/xtensa-esp32-elf/bin:${PATH}
 export IDF_PATH=`pwd`/esp-idf
