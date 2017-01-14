@@ -4,6 +4,13 @@
 #include "esp_wifi.h"
 #include "esp_system.h"
 
+/** Demonstrate use of GDB debug stub.
+ *
+ * Invoke GDB like:
+ *   xtensa-esp32-elf-gdb ./build/app-template.elf -b 115200 -ex 'target remote /dev/cu.usb*'
+ *
+ * See README.md for details.
+ */
 void app_main(void)
 {
     gpio_set_direction(GPIO_NUM_5, GPIO_MODE_OUTPUT);
@@ -17,5 +24,3 @@ void app_main(void)
         volatile uint32_t foo = *(uint32_t*)0;
     }
 }
-
-// xtensa-esp32-elf-gdb ./build/app-template.elf -b 115200 -ex 'target remote /dev/cu.usb*'
