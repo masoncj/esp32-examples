@@ -56,6 +56,7 @@ tar xzf xtensa-esp32-elf-osx-1.22.0-61-gab8375a-5.2.0.tar.gz
 export PATH=`pwd`/xtensa-esp32-elf/bin:${PATH}
 export IDF_PATH=`pwd`/esp-idf
 git clone --recursive https://github.com/cmason1978/esp32-examples
+cd esp32-examples
 ```
 
 Plug the ESP32 board into your USB port, and run:
@@ -263,6 +264,8 @@ Type `quit` to exit.
 Hook up [ALS-PT19](https://cdn-shop.adafruit.com/product-files/2748/2748+datasheet.pdf) ambient light sensor as shown below:
 
 <img alt="ALS-PT16 light sensor hookup diagram" src="assets/light_sensor_hookup.png" width="400"/>
+
+Note, the light sensor is not particularly sensitive.  Try using a flashlight.  You should see the value printed on the `make monitor` console vary depending on how much of the light beam impacts the sensor.
 
 
 ## Next Steps
