@@ -13,6 +13,6 @@ void app_main(void)
         printf("Hello, world.\n");
         gpio_set_level(GPIO_NUM_5, level);
         level = !level;
-        vTaskDelay(1000 / portTICK_PERIOD_MS);
+        vTaskDelay(500 / portTICK_PERIOD_MS);
     }
 }
