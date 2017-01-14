@@ -131,6 +131,13 @@ See [below](#troubleshooting) for troubleshooting suggestions.
 
 ## Examples
 
+* [GPIO Blink LED](#gpio-blink-led)
+* [GPIO Blink LED, raw register version](#gpio-blink-led-raw-register-version)
+* [Debugging crashes](#debugging-crashes)
+* [Analog to digital converter](#analog-to-digital-converter)
+
+More documentation to come, check out the [`main`](main) directory for all examples.
+
 ### Choosing which example to run
 
 The template IDF project is set up to only run a single program.  We have a number of different examples here.  By default the [`main/main_gpio.c`](main/main_gpio.c) example will run, which blinks the LED and writes.
@@ -147,7 +154,7 @@ To choose which example to run, edit the `main/component.mk` file and change whi
 
 `main_gpio_raw.c` – Demonstrates use of direct register access to control the LED.
 
-### Demonstrate debugger
+### Debugging crashes
 
 `main_crash.c` – Demonstrates use of GDB debugger.
 
@@ -249,9 +256,9 @@ Type `quit` to exit.
 
 
 
-### Analog to digital converter (ADC)
+### Analog to digital converter
 
-`main_adc.c` – Use the ADC, for instance with a light sensor.
+`main_adc.c` – Use the analog to digital (ADC), for instance with a light sensor.
 
 Hook up [ALS-PT19](https://cdn-shop.adafruit.com/product-files/2748/2748+datasheet.pdf) ambient light sensor as shown below:
 
