@@ -7,7 +7,7 @@ A **handful of simple examples for the [ESP-32](http://esp32.net/)**.
 ### Table of contents
 
 * [Introduction](#introduction)
-* [Requirements / Setup](#requirements-setup)
+* [Requirements / Setup](#requirements---setup)
 * [Examples](#examples)
 * [Next Steps](#next-steps)
 * [Troubleshooting](#troubleshooting)
