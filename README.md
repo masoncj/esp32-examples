@@ -17,7 +17,7 @@ A **handful of simple examples for the [ESP-32](http://esp32.net/)**.
 
 This repo contains number of simple examples for the [ESP-32](http://esp32.net/), including:
 
-* General Purpose Input Output (GPIO, aka "digital pins"), using [functions](main/main_gpio.c) and [direct register access](main/main_),
+* General Purpose Input Output (GPIO, aka "digital pins"), using [functions](main/main_gpio.c) and [direct register access](main/main_gpio_raw.c),
 * Analog to Digital converter (ADC), for light sensor or soil moisture sensor,
 * Arduino compatibility,
 * Dallas One Wire temperature sensor, 
